@@ -1,8 +1,8 @@
 # Using alpine image, because it is super slim
-FROM alpine
+FROM alpine:3.14
 
 # Install only bash and nodejs, then remove cached package data
-RUN apk add --update bash && apk add --update nodejs nodejs-npm && rm -rf /var/cache/apk/*
+RUN apk add --update bash && apk add --update nodejs npm git && rm -rf /var/cache/apk/*
 
 # Create app directory. This is where source code will be copied to
 RUN mkdir -p /usr/src/app
